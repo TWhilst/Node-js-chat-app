@@ -4,7 +4,7 @@ variable "vpc_id" {
     description = "main VPC ID"
 }
 
-resource "aws_security_group" "Project1_sg_https" {
+resource "aws_security_group" "Project1_sg" {
   name        = "main-sg-https"
   description = "allow https access"
   vpc_id      = data.aws_vpc.Project1.id
