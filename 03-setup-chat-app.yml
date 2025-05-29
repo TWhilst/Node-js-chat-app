@@ -2,11 +2,6 @@
 - name: Setup Nodejs Socket.io Chat Application on Ubuntu Server
   hosts: chatapp
   become: true
-  vars: 
-    items:
-      - "{{ jsFile }}"
-      - "{{ htmlFile }}"
-      - "{{ jsonFile }}"
   tasks:
     - name: Create a directory if it does not exist
       ansible.builtin.file:
@@ -19,9 +14,19 @@
     #   args:
     #     chdir: /var/www/html/chatapp
 
-    - name: Get Nodejs and socket files
+    - name: Get js file from the local machine
       copy:
-        src: "{{ items }}"
+        src: "{{ jsFile }}"
+        dest: /var/www/html/chatapp/
+
+    - name: Get html file from the local machine
+      copy:
+        src: "{{ htmlFile }}"
+        dest: /var/www/html/chatapp/
+
+    - name: Get json file from the local machine
+      copy:
+        src: "{{ jsonFile }}"
         dest: /var/www/html/chatapp/
 
     - name: Install Packages using npm
