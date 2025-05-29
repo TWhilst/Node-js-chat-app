@@ -1,0 +1,31 @@
+---
+- name: Setup Node.js Environment
+  hosts: all
+  become: true
+  tasks:
+    - name: Add NodeSource APT repository
+      shell: |
+        curl -sL https://rpm.nodesource.com/setup_20.x | sudo -E bash -
+
+    - name: Install nodejs and npm
+      yum:
+        name: nodejs
+        state: present
+
+    - name: Install npx
+      npm:
+        name: npx
+        state: present
+
+    - name: Verify Node.js installation
+      command: node -v
+      register: node_version
+
+    - name: Verify npm installation
+      command: npm -v
+      register: npm_version
+
+    - debug:
+        msg:
+          - "Node.js version: {{ node_version.stdout }}"
+          - "npm version: {{ npm_version.stdout }}"
