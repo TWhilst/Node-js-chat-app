@@ -40,7 +40,7 @@
         chdir: /var/www/html/chatapp
 
     - name: Start the chat application using pm2
-      command: pm2 start app.js
+      command: pm2 restart app.js
       args:
         chdir: /var/www/html/chatapp
 
