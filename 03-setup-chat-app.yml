@@ -1,0 +1,53 @@
+---
+- name: Setup Nodejs Socket.io Chat Application
+  hosts: all
+  become: true
+  vars: 
+    items:
+      - "{{jsFile}}"
+      - "{{htmlFile}}"
+      - "{{jsonFile}}"
+  tasks:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /var/www/html/chatapp
+        state: directory
+        mode: 0755
+
+    # - name: Run npm init in the chatapp directory
+    #   command: npm init -y
+    #   args:
+    #     chdir: /var/www/html/chatapp
+
+    - name: Get Nodejs and socket files
+      copy:
+        src: "{{ items }}"
+        dest: /var/www/html/chatapp/
+
+    - name: Install Packages using npm
+      command: npm install
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Start the chat application using pm2
+      command: pm2 start app.js
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Ensure pm2 is running and enabled
+      command: pm2 startup systemd
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Save pm2 process list
+      command: pm2 save
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Ensure pm2 is running
+      command: systemctl start pm2-root
+      args:
+        chdir: /var/www/html/chatapp
+
+
+      

@@ -3,8 +3,16 @@
   hosts: webservers
   become: true
   tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: yes
+
     - name: Install Nginx
-      yum:
+      apt:
         name: nginx
         state: present
 
