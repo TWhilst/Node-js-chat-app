@@ -58,4 +58,4 @@
     - name: Reload Nginx to apply changes
       service:
         name: nginx
-        state: restart
+        state: restarted
