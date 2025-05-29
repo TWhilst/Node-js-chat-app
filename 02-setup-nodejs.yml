@@ -9,7 +9,10 @@
   tasks:
     - name: Add NodeSource APT repository
       shell: |
-        curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh | bash nodesource_setup.sh
+        curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh 
+
+    - name: Run NodeSource setup script
+      command: bash nodesource_setup.sh
 
     - name: Install nodejs, npm and build-essential
       apt:
