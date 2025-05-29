@@ -25,7 +25,7 @@ resource "aws_instance" "jenkins_instance" {
 }
 
 resource "aws_instance" "nodejs_instance" {
-  ami           = data.aws_ami.linux_ami.id
+  ami           = data.aws_ami.ubuntu_ami.id
   instance_type = "t2.micro"
   key_name      = "toche-key1"
   subnet_id     = data.aws_subnet.public_subnet.id
