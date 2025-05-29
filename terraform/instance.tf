@@ -23,3 +23,15 @@ resource "aws_instance" "jenkins_instance" {
     Name = "socket_jenkins"
   }
 }
+
+resource "aws_instance" "nodejs_instance" {
+  ami           = data.aws_ami.linux_ami.id
+  instance_type = "t2.micro"
+  key_name      = "toche-key1"
+  subnet_id     = data.aws_subnet.public_subnet.id
+  vpc_security_group_ids = [data.aws_security_group.Project1_sg_ssh.id, data.aws_security_group.Project1_sg_http.id, aws_security_group.Project1_sg.id]
+
+  tags = {
+    Name = "socket_nodejs"
+  }
+}

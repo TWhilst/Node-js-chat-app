@@ -62,3 +62,7 @@ data "aws_security_group" "Project1_sg_http" {
     name   = "main-sg-http"
 }
 
+# data "aws_security_group" "Project1_sg_sq" {
+#     name   = "main-sg-sq"
+# }
+
