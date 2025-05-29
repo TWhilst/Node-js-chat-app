@@ -1,6 +1,6 @@
 --- 
 - name: Setup Nginx on Linux Server
-  hosts: webservers
+  hosts: chatapp
   become: true
   tasks:
     - name: Update apt package index

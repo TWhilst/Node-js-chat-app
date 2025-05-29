@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        ANSIBLE_INVENTORY = '/home/ec2-user/jenkins/workspace/nodejs-setup/hosts.ini'
-        ANSIBLE_PLAYBOOK = '/home/ec2-user/jenkins/workspace/nodejs-setup/02-setup-nodejs.yml'
+        ANSIBLE_INVENTORY = '/home/ubuntu/jenkins/workspace/nodejs-setup/hosts.ini'
+        ANSIBLE_PLAYBOOK = '/home/ubuntu/jenkins/workspace/nodejs-setup/02-setup-nodejs.yml'
     }
 
     stages {

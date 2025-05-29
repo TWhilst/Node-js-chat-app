@@ -1,6 +1,6 @@
 ---
 - name: Setup Node.js Environment
-  hosts: all
+  hosts: chatapp
   become: true
   vars:
     packages: 

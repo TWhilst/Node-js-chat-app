@@ -2,11 +2,11 @@ pipeline {
     agent any
     
     environment {
-        ANSIBLE_INVENTORY = '/home/ec2-user/jenkins/workspace/chatapp-setup/hosts.ini'
-        ANSIBLE_PLAYBOOK = '/home/ec2-user/jenkins/workspace/chatapp-setup/03-setup-chat-app.yml'
-        jsFile = '/home/ec2-user/jenkins/workspace/chatapp-setup/app.js'
-        htmlFile = '/home/ec2-user/jenkins/workspace/chatapp-setup/index.html'
-        jsonFile = '/home/ec2-user/jenkins/workspace/chatapp-setup/package.json'
+        ANSIBLE_INVENTORY = '/home/ubuntu/jenkins/workspace/chatapp-setup/hosts.ini'
+        ANSIBLE_PLAYBOOK = '/home/ubuntu/jenkins/workspace/chatapp-setup/03-setup-chat-app.yml'
+        jsFile = '/home/ubuntu/jenkins/workspace/chatapp-setup/app.js'
+        htmlFile = '/home/ubuntu/jenkins/workspace/chatapp-setup/index.html'
+        jsonFile = '/home/ubuntu/jenkins/workspace/chatapp-setup/package.json'
     }
 
     stages {

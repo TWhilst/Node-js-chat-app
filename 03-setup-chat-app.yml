@@ -1,6 +1,6 @@
 ---
 - name: Setup Nodejs Socket.io Chat Application
-  hosts: all
+  hosts: chatapp
   become: true
   vars: 
     items:
