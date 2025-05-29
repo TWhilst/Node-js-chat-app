@@ -1,5 +1,5 @@
 ---
-- name: Setup Node.js Environment
+- name: Setup Node.js Environment on Ubuntu Server
   hosts: chatapp
   become: true
   vars:

@@ -1,5 +1,5 @@
 ---
-- name: Setup Nodejs Socket.io Chat Application
+- name: Setup Nodejs Socket.io Chat Application on Ubuntu Server
   hosts: chatapp
   become: true
   vars: 

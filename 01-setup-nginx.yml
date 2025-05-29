@@ -1,5 +1,5 @@
 --- 
-- name: Setup Nginx on Linux Server
+- name: Setup Nginx on Ubuntu Server
   hosts: chatapp
   become: true
   tasks:
