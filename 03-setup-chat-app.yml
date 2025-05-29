@@ -4,9 +4,9 @@
   become: true
   vars: 
     items:
-      - "{{jsFile}}"
-      - "{{htmlFile}}"
-      - "{{jsonFile}}"
+      - "{{ jsFile }}"
+      - "{{ htmlFile }}"
+      - "{{ jsonFile }}"
   tasks:
     - name: Create a directory if it does not exist
       ansible.builtin.file:
