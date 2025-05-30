@@ -7,12 +7,36 @@
       ansible.builtin.file:
         path: /var/www/html/chatapp
         state: directory
-        mode: 0755
 
-    # - name: Run npm init in the chatapp directory
-    #   command: npm init -y
-    #   args:
-    #     chdir: /var/www/html/chatapp
+    - name: Run npm init in the chatapp directory
+      command: npm init -y
+      args:
+        chdir: /var/www/html/chatapp
+
+    # - name: Get json file from the local machine
+    #   copy:
+    #     src: "{{ jsonFile }}"
+    #     dest: /var/www/html/chatapp/
+
+    - name: Install express
+      command: npm install -s express 
+      args:
+        chdir: /var/www/html/chatapp
+    
+    - name: Install socket.io
+      command: npm install -s socket.io 
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Install http
+      command: npm install -s http 
+      args:
+        chdir: /var/www/html/chatapp
+
+    - name: Install body-parser
+      command: npm install -s body-parser
+      args:
+        chdir: /var/www/html/chatapp
 
     - name: Get js file from the local machine
       copy:
@@ -23,21 +47,6 @@
       copy:
         src: "{{ htmlFile }}"
         dest: /var/www/html/chatapp/
-
-    - name: Get json file from the local machine
-      copy:
-        src: "{{ jsonFile }}"
-        dest: /var/www/html/chatapp/
-
-    - name: Install Packages using npm
-      command: npm install
-      args:
-        chdir: /var/www/html/chatapp
-
-    - name: Install body-parser and http packages
-      command: npm install -s body-parser http
-      args:
-        chdir: /var/www/html/chatapp
 
     - name: Start the chat application using pm2
       command: pm2 restart app.js
